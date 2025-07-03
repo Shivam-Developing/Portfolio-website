@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=SourceSansPro:wght@900&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,800;1,800&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="hamburger-menu" id="hamburger-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links-list" id="nav-links-list">
+            <li><button class="nav-button" data-target="home-section">Home</button></li>
+            <li><button class="nav-button" data-target="education-section">Education</button></li>
+            <li><button class="nav-button" data-target="skills-section">Skills</button></li>
+            <li><button class="nav-button" data-target="experience-section">Experience</button></li>
+            <li><button class="nav-button" data-target="certifications-section">Certifications</button></li>
+            <li><button class="nav-button" data-target="projects-section">Projects</button></li>
+            <li><button class="nav-button" data-target="open-to-work-section">Open To Work</button></li>
+            <li><button class="nav-button" data-target="my-contact-details-section">Contact Details</button></li>
+            <li><a class="nav-button" href="https://www.linkedin.com/in/shivam-dhanda-142970284?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">LinkedIn</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="home" id="home-section">
+            <div class="home-container">
+                <div class="home-content animate-on-scroll">
+                    <div class="home-text">
+                        <h3 class="Line-1">Hi, I’m </h3>
+                        <h1 class="Line-2">Shivam Dhanda</h1>
+                        <span class="">-</span><span class="Line-3" id="text-display">Computer Science Student</span>
+                    </div>
+                    <div class="about-me">
+                        <p class="about-text">Aspiring Computer Scientist and AI Enthusiast with a proven track record in academic and project-based challenges. Bilingual in Hindi and English, I am actively seeking opportunities for self-development in the computer science domain to harness and expand my technical skills and innovative thinking</p>
+                    </div>
+                    <button class="edu-button" data-target="education-section">
+                        <span class="view-education-background">VIEW EDUCATION BACKGROUND</span>
+                    </button>
+                </div>
+                <div class="profile-photo animate-on-scroll">
+                    <div class="photo"></div>
+                </div>
+            </div>
+            <div>
+                <span class="quote" id="quote-display"></span>
+            </div>
+        </section>
+
+        <section class="education-section" id="education-section">
+            <div class="education-title animate-on-scroll">EDUCATION SECTION</div>
+            <div class="edu-text animate-on-scroll">Take a look at my education background</div>
+            
+            <div class="college-container animate-on-scroll">
+                <div class="college">
+                    <button class="button">
+                        <span class="undergraduate-degree">UNDERGRADUATE DEGREE</span>
+                    </button>
+                    <div class="college-Title">
+                        <span class="institute-name">Rajiv Gandhi Institute of Petroleum Technology</span>
+                    </div>
+                    <div class="college-text">
+                        <span class="education-details">Pursuing Integrated Dual degree in Computer Science with a Specialization in Artificial intelligence. Start year 2023 , pass out year 2028</span>
+                    </div>
+                </div>
+                <div class="college-logo">
+                    <div class="rgipt-logo"></div>
+                </div>
+            </div>
+
+            <div class="school-container animate-on-scroll">
+                <div class="school-logo">
+                    <div class="TPS-logo"></div>
+                </div>
+                <div class="school">
+                    <button class="button">
+                        <span class="Intermediate-Button">INTERMEDIATE</span>
+                    </button>
+                    <div class="school-title">
+                        <span class="school-name">TAGORE PUBLIC SCHOOL , PALWAL</span>
+                    </div>
+                    <div class="School-12-text">
+                        <span class="school-edu-details-12">Completed class 12 from Tagore Public school palwal , secured 91% in board exams.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="Matriculation-container animate-on-scroll">
+                <div class="Matriculation">
+                    <button class="button">
+                        <span class="Matriculation-Button">MATRICULATION</span>
+                    </button>
+                    <div class="school-title-10">
+                        <span class="school-name-10">TAGORE PUBLIC SCHOOL , PALWAL</span>
+                    </div>
+                    <div class="School-10-text">
+                        <span class="school-edu-details-10">Completed class 10 from Tagore Public school palwal , secured 95.8% in board exams.</span>
+                    </div>
+                </div>
+                <div class="school-logo-10">
+                    <div class="TPS-logo-10"></div>
+                </div>
+            </div>
+            <div class="table-container animate-on-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>COURSE</th>
+                            <th>INSTITUTE</th>
+                            <th>CPI/CGPA/%</th>
+                            <th>Year</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Integrated Dual Degree CSE and AI</td>
+                            <td>Rajiv Gandhi Institute of Petroleum Technology</td>
+                            <td>7.61/10* *Up to 3rd Semester</td>
+                            <td>2023-2024</td>
+                        </tr>
+                        <tr>
+                            <td>Intermediate</td>
+                            <td>Tagore public school, Palwal</td>
+                            <td>91%</td>
+                            <td>2021</td>
+                        </tr>
+                        <tr>
+                            <td>Matriculation</td>
+                            <td>Tagore public school, Palwal</td>
+                            <td>95.80%</td>
+                            <td>2019</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="experience-section" id="experience-section">
+            <div class="experience-container">
+                <span class="section-title animate-on-scroll">EXPERIENCE</span>
+                <span class="section-subtitle animate-on-scroll">My professional journey</span>
+
+                <div class="experience-item-wrapper">
+                    <div class="experience-item animate-on-scroll">
+                        <div class="experience-header">
+                            <span class="experience-title">HypHomZ</span>
+                            <span class="experience-duration">May 2025 - Present (3 months)</span>
+                        </div>
+                        <span class="experience-role">Back End Developer</span>
+                        <span class="experience-location">Noida, Uttar Pradesh, India</span>
+                    </div>
+                    <div class="experience-item animate-on-scroll">
+                        <div class="experience-header">
+                            <span class="experience-title">Science & Technical Council, RGIPT</span>
+                            <span class="experience-duration">October 2024 - Present (10 months)</span>
+                        </div>
+                        <span class="experience-role">Product design Club Executive</span>
+                    </div>
+                    <div class="experience-item animate-on-scroll">
+                        <div class="experience-header">
+                            <span class="experience-title">Cisco thingQbator RGIPT</span>
+                            <span class="experience-duration">August 2024 - Present (1 year)</span>
+                        </div>
+                        <span class="experience-role">Public relation coordinator</span>
+                    </div>
+                    <div class="experience-item animate-on-scroll">
+                        <div class="experience-header">
+                            <span class="experience-title">Yovarc</span>
+                            <span class="experience-duration">May 2025 - July 2025 (3 months)</span>
+                        </div>
+                        <span class="experience-role">Full Stack Intern</span>
+                        <span class="experience-location">Noida, Uttar Pradesh, India</span>
+                        <p class="experience-description">Worked as a Full stack intern, developed a job portal using modern development technologies.</p>
+                    </div>
+                    <div class="experience-item animate-on-scroll">
+                        <div class="experience-header">
+                            <span class="experience-title">Energia</span>
+                            <span class="experience-duration">January 2025 - February 2025 (2 months)</span>
+                        </div>
+                        <span class="experience-role">CO HEAD CREATIVITY TEAM</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section (Slideshow) -->
+        <section class="certifications-section" id="certifications-section">
+            <div class="certifications-container">
+                <span class="section-title animate-on-scroll">CERTIFICATIONS</span>
+                <span class="section-subtitle animate-on-scroll">My achievements and recognitions</span>
+
+                <div class="slideshow-container animate-on-scroll">
+                    <div class="mySlides fade">
+                        <div class="certification-content">
+                            <div class="certificate-image-placeholder1"></div>
+                            <div class="certification-text">Certificate of Participation in Prevent and Prosper: A Quiz on International Day against Drug Abuse and Illicit Trafficking of Counselling Service Team (CST)</div>
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="certification-content">
+                            <div class="certificate-image-placeholder2"></div>
+                            <div class="certification-text">Certificate of Excellence in Assessment for opportunity of Java Quiz</div>
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="certification-content">
+                            <div class="certificate-image-placeholder3"></div>
+                            <div class="certification-text">Certificate of Participation in Thingqbator Cohort 7</div>
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="certification-content">
+                            <div class="certificate-image-placeholder4"></div>
+                            <div class="certification-text">Introduction to Design thinking in science and it's assessment</div>
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="certification-content">
+                            <div class="certificate-image-placeholder5"></div>
+                            <div class="certification-text">Certificate of Participation in Accelerators/incubation opportunities</div>
+                        </div>
+                    </div>
+                    <div class="mySlides fade">
+                        <div class="certification-content">
+                            <div class="certificate-image-placeholder6"></div>
+                            <div class="certification-text">Certificate of Participation in Prep bee competition</div>
+                        </div>
+                    </div>
+                    <!-- Next and previous buttons -->
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+                <br>
+
+                <!-- The dots/circles -->
+                <div class="dot-navigation">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                    <span class="dot" onclick="currentSlide(6)"></span>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills-section" id="skills-section">
+            <div class="skills-container">
+                <div class="skills-title animate-on-scroll">Skills Section</div>
+                <div class="skills-text animate-on-scroll">
+                    SKILLS I COLLECTED IN TWO YEARS OF MY COLLEGE LIFE
+                </div>
+                
+                <!-- Removed Web Development Banner -->
+
+                <!-- New section for Web Development & Backend -->
+                <div class="skills-category-container animate-on-scroll">
+                    <h3 class="skills-category-title">Web Development & Backend</h3>
+                    <ul class="skills-list">
+                        <li class="skill-item">Node.js</li>
+                        <li class="skill-item">MongoDB</li>
+                        <li class="skill-item">Express.js</li>
+                        <li class="skill-item">React.js</li>
+                        <li class="skill-item">Django REST Framework</li>
+                        <li class="skill-item">Representational State Transfer (REST)</li>
+                        <li class="skill-item">Web Development</li>
+                        <li class="skill-item">JSON</li>
+                        <li class="skill-item">Tailwind CSS</li>
+                        <li class="skill-item">Django</li>
+                    </ul>
+                </div>
+
+                <!-- New section for Programming Languages -->
+                <div class="skills-category-container animate-on-scroll">
+                    <h3 class="skills-category-title">Programming Languages</h3>
+                    <ul class="skills-list">
+                        <li class="skill-item">JavaScript</li>
+                        <li class="skill-item">Python (Programming Language)</li>
+                        <li class="skill-item">C (Programming Language)</li>
+                        <li class="skill-item">Java</li>
+                        <li class="skill-item">Kotlin programming language</li>
+                        <li class="skill-item">JET PACK compose</li>
+                    </ul>
+                </div>
+
+                <!-- New section for AI & Machine Learning -->
+                <div class="skills-category-container animate-on-scroll">
+                    <h3 class="skills-category-title">AI & Machine Learning</h3>
+                    <ul class="skills-list">
+                        <li class="skill-item">Machine Learning</li>
+                        <li class="skill-item">Deep Learning</li>
+                        <li class="skill-item">Google Gemini</li>
+                        <li class="skill-item">langchain</li>
+                        <li class="skill-item">langGraph</li>
+                        <li class="skill-item">LangSmith</li>
+                        <li class="skill-item">CNN,RNN</li>
+                    </ul>
+                </div>
+
+                <!-- New section for Tools & Technologies -->
+                <div class="skills-category-container animate-on-scroll">
+                    <h3 class="skills-category-title">Tools & Technologies</h3>
+                    <ul class="skills-list">
+                        <li class="skill-item">Microsoft PowerPoint</li>
+                        <li class="skill-item">Flutter flow</li>
+                        <li class="skill-item">Figma (Software)</li>
+                        <li class="skill-item">Android Development (learning phase)</li>
+                        <li class="skill-item">Canva</li>
+                        <li class="skill-item">AutoCAD</li>
+                        <li class="skill-item">Google API</li>
+                    </ul>
+                </div>
+
+                <!-- New section for Other Skills -->
+                <div class="skills-category-container animate-on-scroll">
+                    <h3 class="skills-category-title">Other Skills</h3>
+                    <ul class="skills-list">
+                        <li class="skill-item">Finance</li>
+                        <li class="skill-item">Structured Query Language (SQL)</li>
+                        <li class="skill-item">Design Thinking</li>
+                        <li class="skill-item">Leadership</li>
+                        <li class="skill-item">Engineering</li>
+                        <li class="skill-item">Strategic Communications</li>
+                        <li class="skill-item">Creative Problem Solving</li>
+                        <li class="skill-item">Team Management</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Top Skills Section -->
+        <section class="top-skills-section" id="top-skills-section">
+            <div class="top-skills-container">
+                <span class="section-title animate-on-scroll">TOP SKILLS</span>
+                <span class="section-subtitle animate-on-scroll">My most proficient and in-demand skills</span>
+                <div class="top-skills-list animate-on-scroll">
+                    <span class="top-skill-item">Web Development</span>
+                    <span class="top-skill-item">Database Management</span>
+                    <span class="top-skill-item">Backend Development</span>
+                    <span class="top-skill-item">Agentic Ai developer</span>
+                    <span class="top-skill-item">Python</span>
+                    <span class="top-skill-item">Django</span>
+                    <span class="top-skill-item">Machine Learning</span>
+                    <span class="top-skill-item">JavaScript</span>
+                    <span class="top-skill-item">ChatBOTS</span>
+                    <span class="top-skill-item">Android</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects-section" id="projects-section">
+            <div class="projects-container">
+                <span class="section-title animate-on-scroll">PROJECTS</span>
+                <span class="section-subtitle animate-on-scroll">A glimpse into my creations</span>
+
+                <div class="project-grid">
+                    <div class="project-item animate-on-scroll">
+                        <h3 class="project-title">Job Portal Web App at Yovarc</h3>
+                        <p class="project-description">Developed a full-stack job portal using modern web technologies (e.g., MERN stack or Django/Node.js backend with React/HTML/CSS frontend). Features include user authentication, job posting, application tracking, and search functionalities during my internship as a FULL STACK INTERN at Yovarc.</p>
+                        <div class="project-links">
+                            <!-- <a href="#" class="project-link">Live Demo</a> -->
+                            <!-- <a href="#" class="project-link">GitHub Repo</a> -->
+                        </div>
+                    </div>
+                    <div class="project-item animate-on-scroll">
+                        <h3 class="project-title">AI/ML Model for HandWritten Mathematical Equation Solver </h3>
+                        <p class="project-description">Designed and implemented a machine learning model to create a HandWritten Mathematical Equation Solver 
+                                                        which Identifies and Solves Hand Written Mathematical Equations Seamlessly. Tools & technologies used: Deep Learning(CNN + RNN) , Word Embedding , Sympy .</p>
+                        <div class="project-links">
+                            <!-- <a href="#" class="project-link">Live Demo</a>
+                            <a href="#" class="project-link">GitHub Repo</a> -->
+                        </div>
+                    </div>
+                    <div class="project-item animate-on-scroll">
+                        <h3 class="project-title">Chat bot for RGIPT</h3>
+                        <p class="project-description">Developed a Chatbot to be deployed on RGIPT's official Website. user can interact and query with the chatbot about the information available on the website. utilized GROQ , Langgraph , Langsmith.</p>
+                        <div class="project-links">
+                            <!-- <a href="#" class="project-link">Live Demo</a>
+                            <a href="#" class="project-link">GitHub Repo</a> -->
+                        </div>
+                    </div>
+                    <div class="project-item animate-on-scroll">
+                        <h3 class="project-title">PortFolio Website</h3>
+                        <p class="project-description">Created an interactive portfolio website for myself , the one you are visiting currently.</p>
+                        <div class="project-links">
+                            <!-- <a href="#" class="project-link">Live Demo</a>
+                            <a href="#" class="project-link">GitHub Repo</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Open to Work Section -->
+        <section class="open-to-work-section" id="open-to-work-section">
+            <div class="open-to-work-container animate-on-scroll">
+                <span class="section-title">OPEN TO WORK</span>
+                <span class="section-subtitle">Actively seeking new opportunities</span>
+                <p class="open-to-work-text">I am currently open to new opportunities as a **Backend Developer**, **Full-Stack Developer**, **AI/ML Engineer** , **Agentic AI Developer**. I am eager to contribute my skills and learn from experienced teams. Feel free to reach out if my profile aligns with your requirements!</p>
+                <button class="open-to-work-button" data-target="contact-section">
+                    <span class="open-to-work-button-text">CONTACT ME</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- My Contact Details Section -->
+        <section class="my-contact-details-section" id="my-contact-details-section">
+            <div class="my-contact-details-container animate-on-scroll">
+                <span class="section-title">MY CONTACT DETAILS</span>
+                <span class="section-subtitle">How to reach me</span>
+                <div class="contact-info-grid">
+                    <div class="contact-info-item">
+                        <span class="contact-label">Email:</span>
+                        <a href="23cs2038@rgipt.ac.in" target="_blank" class="contact-value-link">23cs2038@rgipt.ac.in</a>
+                    </div>
+                    <div class="contact-info-item">
+                        <span class="contact-label">LinkedIn:</span>
+                        <a href="https://www.linkedin.com/in/shivam-dhanda-142970284" target="_blank" class="contact-value-link">Shivam Dhanda</a>
+                    </div>
+                    <div class="contact-info-item">
+                        <span class="contact-label">Phone:</span>
+                        <a href="8744003727" target="_blank" class="contact-value-link">+91 8744003727</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section" id="contact-section">
+            <div class="contact-container">
+                <span class="section-title animate-on-scroll">GET IN TOUCH</span>
+                <span class="section-subtitle animate-on-scroll">Feel free to contact me any time</span>
+                <div class="form-container animate-on-scroll">
+                    <form action="#" method="post">
+                        <div class="input-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Please enter your email" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="mobile">Mobile</label>
+                            <input type="tel" id="mobile" name="mobile" placeholder="Enter mobile" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+                        </div>
+                        <button class="call-to-action" type="submit"><span class="submit">Submit</span></button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <span class="shivam-2025">SHIVAM . 2025</span>
+    </footer>
+
+    <script src="scripts.js"></script>    
+</body>
+</html>

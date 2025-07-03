@@ -1,0 +1,1494 @@
+:root {
+    --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
+      "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
+      "Source Han Sans CN", sans-serif;
+    --primary-text-color: #d9d9d9;
+    --secondary-text-color: #9c9c9c;
+    --highlight-color-blue: #4fbdd2;
+    --highlight-color-green: #3e8e00;
+    --highlight-color-green-dark: #61b91b;
+    --highlight-color-orange: #ffa217;
+    --background-color-dark: #080808;
+    --background-color-light-gray: #1a1a1a;
+    --button-bg-light: #fff6e8;
+    --border-color: #9c9c9c;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background: var(--background-color-dark);
+    box-sizing: border-box;
+    z-index: 1;
+    font-family: var(--default-font-family); /* Applied globally */
+    scroll-behavior: smooth; /* Smooth scrolling for navigation */
+}
+
+input,
+select,
+textarea,
+button {
+  outline: 0;
+}
+
+/* General Animations for elements appearing on scroll */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Navbar */
+.navbar{
+    position: fixed;
+    box-sizing: border-box;
+    top: 0;
+    width: 94vw;
+    margin-top: 0%;
+    border-radius: 0 0 8px 8px;
+    margin-left: 3vw;
+    margin-right: 3vw;
+    height: 10vh;
+    z-index: 10;
+    background-color: var(--background-color-dark); /* Ensure navbar background is consistent */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    /* display: flex; 
+    justify-content: space-between; */
+    align-items: center; /* Vertically align items */
+    padding: 0 20px; /* Add padding to the navbar */
+}
+
+.nav-links-list{
+    height: 10vh;
+    margin-top: 0%;
+    box-sizing: border-box;
+    margin-left: 3vw;
+    margin-right: 3vw;
+    border-radius: 0 0 8px 8px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 3;
+    padding: 0; /* Remove default ul padding */
+    list-style: none; /* Remove default ul bullets */
+}
+
+.nav-button{
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: auto;
+    height: auto;
+    color: var(--secondary-text-color);
+    background-color: var(--background-color-dark);
+    font-family: IBM Plex Mono, var(--default-font-family);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.14px;
+    white-space: nowrap;
+    text-align: left;
+    border: 1px solid var(--secondary-text-color);
+    z-index: 6;
+    border-radius: 4px;
+    box-shadow: 0px 8px 8px 0px rgba(63, 142, 0, 0.5);
+    padding: 8px 16px; /* Add padding for better button appearance */
+    text-decoration: none; /* For anchor tags */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.nav-button:hover {
+    color: var(--highlight-color-blue);
+    border-color: var(--highlight-color-blue);
+    transform: translateY(-3px); /* Lift effect on hover */
+    box-shadow: 0px 12px 15px 0px rgba(79, 189, 210, 0.3); /* Blue shadow on hover */
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+    display: none; /* Hidden by default on desktop */
+    font-size: 28px;
+    color: var(--primary-text-color);
+    cursor: pointer;
+    z-index: 11; /* Ensure it's above other content */
+}
+
+/* Home Section */
+.home-container{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    margin-left: 2%;
+    margin-top: 10vh; /* Adjusted for fixed navbar */
+    margin-right: 2%;
+    height: 100%;
+    z-index: 2;
+    margin: 12vh 0% 0% 0%; /* Adjusted top margin for content below navbar */
+}
+
+.home-content{
+    margin-top: 0; /* Already accounted for in .home-container */
+    margin-left: 3.5vw;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: auto;
+    z-index: 3;
+}
+
+.Line-1, .Line-2, .Line-3 {
+    color: var(--primary-text-color);
+    font-family: Abhaya Libre ExtraBold, var(--default-font-family);
+    font-size: 54px;
+    font-weight: 800;
+    line-height: 1.2; /* Adjusted for better readability */
+    text-align: left;
+    white-space: wrap;
+    height: auto;
+    margin: 0; /* Remove default heading margins */
+}
+
+.Line-2{
+    color: var(--highlight-color-blue);
+}
+
+.Line-3 {
+    width: 60vw;
+}
+
+.about-me{
+    width: auto;
+    height: auto;
+    box-sizing: border-box;
+    z-index: 4;
+    white-space: wrap;
+    margin-top: 20px; /* Spacing below headings */
+}
+
+.about-text{
+    color: var(--secondary-text-color);
+    font-family: IBM Plex Mono, var(--default-font-family);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    letter-spacing: 0.14px;
+    z-index: 4;
+    white-space: wrap;
+}
+
+.profile-photo{
+    box-sizing: border-box;
+    margin-top: 0; /* Already accounted for in .home-container */
+    width: 40%;
+    height: auto;
+    display: flex; /* Use flex for centering child */
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+}
+
+.photo{
+    box-sizing: border-box;
+    width: 80%;
+    height: 80%;
+    background: url(./assets/images/edf641db-7784-47f9-bfb5-c6f126e0e0e7.png) no-repeat center;
+    background-size: contain;
+    z-index: 4;
+}
+
+.quote{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    margin-top: 4%;
+    color: var(--secondary-text-color);
+    font-family: IBM Plex Mono, var(--default-font-family);
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center; /* Changed to center for better appearance */
+    letter-spacing: 0.24px;
+    -webkit-text-stroke: 1px var(--secondary-text-color);
+    margin-bottom: 50px; /* Added some bottom margin */
+    opacity: 0; /* Initial state for animation */
+    transition: opacity 1s ease-in-out; /* Smooth transition for quote changes */
+}
+
+.quote.fade-in {
+    opacity: 1;
+}
+
+.quote.fade-out {
+    opacity: 0;
+}
+
+.edu-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    width: 45%;
+    height:10vh;
+    margin-top: 2vh;
+    cursor: pointer;
+    background: var(--highlight-color-green);
+    border: 1px solid var(--highlight-color-green-dark);
+    z-index: 4;
+    border-radius: 4px;
+    box-shadow: 0 8px 30px 0 rgba(63, 142, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.edu-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px 0 rgba(63, 142, 0, 0.6);
+}
+
+.view-education-background {
+    display: flex;
+    flex-shrink: 0;
+    flex-basis: auto;
+    color: #ffffff;
+    font-family: IBM Plex Mono, var(--default-font-family);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 20.8px;
+    text-align: left;
+    white-space: wrap;
+    z-index: 5;
+}
+
+/* Education Section */
+.education-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centered content */
+    justify-content: center;
+    box-sizing: border-box;
+    z-index: 3;
+    padding: 50px 0; /* Add padding for separation */
+}
+
+.education-title {
+    margin-top: 5%;
+    color: #ffffff;
+    font-family: Raleway, var(--default-font-family);
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 39.916px;
+    text-align: center;
+    white-space: nowrap;
+    z-index: 3;
+    box-sizing: border-box;
+}
+
+.edu-text {
+    margin-top: 1%;
+    color: var(--secondary-text-color);
+    font-family: IBM Plex Mono, var(--default-font-family);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+    white-space: nowrap;
+    letter-spacing: 0.14px;
+    z-index: 3;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+}
+
+.college-container,
+.school-container,
+.Matriculation-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 5%;
+    width: 70%; /* Adjusted width */
+    max-width: 900px; /* Added max-width for better control on larger screens */
+    height: auto; /* Changed to auto for content flexibility */
+    z-index: 3;
+    box-sizing: border-box;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    border: 2px solid var(--primary-text-color); /* Applied consistent border */
+    margin-bottom: 20px; /* Space between containers */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.college-container:hover,
+.school-container:hover,
+.Matriculation-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+}
+
+
+.college,
+.school,
+.Matriculation {
+    display: flex;
+    padding: 3%;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 70%;
+    height: 100%;
+    z-index: 4;
+    box-sizing: border-box;
+    border-right: 2px solid var(--primary-text-color); /* Separator for text and logo */
+}
+
+.college-logo,
+.school-logo,
+.school-logo-10 { /* Added for Matriculation logo */
+    display: flex; /* Use flex to center the logo */
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    height: auto;
+    box-sizing: border-box;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.button {
+    cursor: pointer;
+    background: var(--button-bg-light);
+    margin-top: 0%;
+    margin-bottom: 3%;
+    border: none;
+    z-index: 61;
+    border-radius: 60px;
+    z-index: 5;
+    padding: 8px 16px; /* Add padding for button content */
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    background-color: var(--highlight-color-orange);
+    color: white;
+}
+
+.undergraduate-degree,
+.Intermediate-Button,
+.Matriculation-Button {
+    color: var(--highlight-color-orange);
+    font-family: IBM Plex Mono, var(--default-font-family);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: left;
+    white-space: nowrap;
+    letter-spacing: 0.14px;
+    z-index: 6;
+}
+
+.education-details,
+.school-edu-details-12,
+.school-edu-details-10 {
+    margin-top: 3%;
+    margin-bottom: 3%;
+    color: var(--secondary-text-color);
+    font-family: IBM Plex Mono, var(--default-font-family);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    letter-spacing: 0.14px;
+    z-index: 5;
+}
+
+.college-Title,
+.school-title,
+.school-title-10 {
+    color: var(--primary-text-color);
+    margin-top: 3%;
+    margin-bottom: 3%;
+    font-family: Raleway, var(--default-font-family);
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 28px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 5;
+}
+
+.rgipt-logo{
+    box-sizing: border-box;
+    width: 80%;
+    height: 80%;
+    margin: 10%; /* Center the image within its container */
+    background: url(./assets/images/eee84866-dcf0-42b9-a8e4-43b163bde65b.png) no-repeat center;
+    background-size: contain;
+    z-index: 5;
+}
+
+.TPS-logo,
+.TPS-logo-10 { /* Added for Matriculation logo */
+    box-sizing: border-box;
+    width: 80%;
+    height: 80%;
+    margin: 10%; /* Center the image within its container */
+    background: url(./assets/images/419be7373276bef511c047a9e5f8c86981e82127.png) no-repeat center;
+    background-size: contain;
+    z-index: 5;
+}
+
+.table-container{ /* New container for the table */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 70%; /* Match container width */
+    max-width: 900px; /* Match container max-width */
+    height: auto;
+    margin: 3%;
+    box-sizing: border-box;
+    color: var(--secondary-text-color);
+    z-index: 3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead th{
+    font-family: Inter, var(--default-font-family);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    color: var(--secondary-text-color);
+    border: 1px solid var(--secondary-text-color); /* Solid border for table cells */
+    padding: 1%;
+}
+
+tbody td{
+    font-family: Inter, var(--default-font-family);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: center;
+    white-space: wrap;
+    color: var(--secondary-text-color);
+    border: 1px solid var(--secondary-text-color);
+    padding: 1%;
+    width: auto;
+}
+
+/* General Section Titles and Subtitles */
+.section-title {
+    color: #ffffff;
+    font-family: Raleway, var(--default-font-family);
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 39.916px;
+    text-align: center;
+    white-space: nowrap;
+    z-index: 3;
+    box-sizing: border-box;
+    margin-top: 5%;
+    width: 100%; /* Ensure it centers */
+}
+
+.section-subtitle {
+    color: var(--secondary-text-color);
+    font-family: IBM Plex Mono, var(--default-font-family);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+    white-space: nowrap;
+    letter-spacing: 0.14px;
+    z-index: 3;
+    box-sizing: border-box;
+    margin-top: 1%;
+    margin-bottom: 3%;
+    width: 100%; /* Ensure it centers */
+}
+
+/* Experience Section Styles */
+.experience-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the container horizontally */
+    box-sizing: border-box;
+    z-index: 3;
+    padding: 0 3vw; /* Add some horizontal padding */
+}
+
+.experience-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%; /* Adjust width as needed */
+    box-sizing: border-box;
+}
+
+.experience-item-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Each item takes full width of container */
+    gap: 30px; /* Space between experience items */
+    margin-top: 2%;
+}
+
+.experience-item {
+    background-color: var(--background-color-light-gray); /* Dark background for item */
+    border: 2px solid var(--highlight-color-blue); /* Border from existing elements */
+    border-radius: 8px;
+    padding: 25px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 0 8px 30px 0 rgba(63, 142, 0, 0.3); /* Green shadow from button */
+    transition: all 0.3s ease;
+}
+
+.experience-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(63, 142, 0, 0.6);
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.experience-title {
+    color: var(--primary-text-color);
+    font-family: Raleway, var(--default-font-family);
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.experience-duration {
+    color: var(--highlight-color-orange); /* Orange color from buttons */
+    font-family: IBM Plex Mono, var(--default-font-family);
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.experience-role {
+    color: var(--highlight-color-blue); /* Blue color from headers */
+    font-family: IBM Plex Mono, var(--default-font-family);
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.experience-location {
+    color: var(--secondary-text-color);
+    font-family: IBM Plex Mono, var(--default-font-family);
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.experience-description {
+    color: var(--secondary-text-color);
+    font-family: IBM Plex Mono, var(--default-font-family);
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+/* Certifications Section (Slideshow) */
+.certifications-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    z-index: 3;
+    padding: 0 3vw;
+}
+
+.certifications-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    box-sizing: border-box;
+}
+
+.slideshow-container {
+    max-width: 800px; /* Max width for the slideshow */
+    position: relative;
+    margin: auto;
+    margin-top: 30px;
+    border: 2px solid var(--highlight-color-blue); /* Blue border */
+    border-radius: 8px;
+    box-shadow: 0 8px 30px rgba(63, 142, 0, 0.3); /* Green shadow */
+    overflow: hidden; /* Hide overflow for smooth transitions */
+}
+
+.mySlides {
+    display: none; /* Hidden by default */
+    background-color: var(--background-color-light-gray);
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.certification-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.certificate-image-placeholder1 {
+    width: 90%;
+    background: url(./assets/images/drug.jpeg) no-repeat center;
+    background-size: contain;
+    height: 250px; /* Placeholder height */
+    background-color: #333;
+    color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    font-family: IBM Plex Mono, monospace;
+    font-size: 18px;
+    border-radius: 4px;
+}
+.certificate-image-placeholder2 {
+    width: 90%;
+    background: url(./assets/images/java.jpeg) no-repeat center;
+    background-size: contain;
+    height: 250px; /* Placeholder height */
+    background-color: #333;
+    color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    font-family: IBM Plex Mono, monospace;
+    font-size: 18px;
+    border-radius: 4px;
+}
+.certificate-image-placeholder3 {
+    width: 90%;
+    background: url(./assets/images/sahara.jpeg) no-repeat center;
+    background-size: contain;
+    height: 250px; /* Placeholder height */
+    background-color: #333;
+    color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    font-family: IBM Plex Mono, monospace;
+    font-size: 18px;
+    border-radius: 4px;
+}
+.certificate-image-placeholder4 {
+    width: 90%;
+    background: url(./assets/images/design.jpeg) no-repeat center;
+    background-size: contain;
+    height: 250px; /* Placeholder height */
+    background-color: #333;
+    color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    font-family: IBM Plex Mono, monospace;
+    font-size: 18px;
+    border-radius: 4px;
+}
+.certificate-image-placeholder5 {
+    width: 90%;
+    background: url(./assets/images/slc.jpeg) no-repeat center;
+    background-size: contain;
+    height: 250px; /* Placeholder height */
+    background-color: #333;
+    color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    font-family: IBM Plex Mono, monospace;
+    font-size: 18px;
+    border-radius: 4px;
+}
+.certificate-image-placeholder6 {
+    width: 90%;
+    background: url(./assets/images/prepbee.jpeg) no-repeat center;
+    background-size: contain;
+    height: 250px; /* Placeholder height */
+    background-color: #333;
+    color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    font-family: IBM Plex Mono, monospace;
+    font-size: 18px;
+    border-radius: 4px;
+}
+.certification-text {
+    color: var(--primary-text-color);
+    font-family: IBM Plex Mono, var(--default-font-family);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0,0,0,0.5);
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little extra opacity */
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* The dots/bullets/indicators */
+.dot-navigation {
+    text-align: center;
+    margin-top: 20px;
+}
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+/* Skills Section Modifications (new classes) */
+.skills-section{ /* Changed from .Skill-section to .skills-section for consistency */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
+    width: 100%;
+    padding: 50px 0;
+}
+.skills-title {
+    color: #ffffff;
+    font-family: Raleway, var(--default-font-family);
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 39.916px;
+    text-align: center;
+    white-space: nowrap;
+    z-index: 5;
+    margin-bottom: 1%;
+}
+.skills-text {
+    color: var(--secondary-text-color);
+    font-family: IBM Plex Mono, var(--default-font-family);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+    white-space: wrap;
+    letter-spacing: 0.14px;
+    z-index: 5;
+    margin-bottom: 1%;
+}
+.skill-banner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    border: 1px solid var(--primary-text-color);
+    z-index: 5;
+    width: 55vw;
+    height: auto;
+    margin-top: 3%;
+    transition: all 0.3s ease;
+}
+
+.skill-banner:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(255, 255, 255, 0.2);
+}
+
+.skills-category-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5vh;
+    width: 100%;
+}
+
+.skills-category-title {
+    color: var(--highlight-color-blue); /* Blue color for section titles */
+    font-family: Raleway, var(--default-font-family);
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.skills-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px; /* Space between skill items */
+    width: 70%; /* Adjust as needed */
+}
+
+.skill-item {
+    background-color: var(--background-color-light-gray);
+    border: 1px solid var(--highlight-color-green-dark); /* Green border from buttons */
+    border-radius: 4px;
+    padding: 10px 20px;
+    color: var(--primary-text-color);
+    font-family: IBM Plex Mono, var(--default-font-family);
+    font-size: 16px;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(63, 142, 0, 0.3); /* Green shadow */
+    transition: all 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: scale(1.05); /* Slight scale up on hover */
+    background-color: var(--highlight-color-green);
+    color: white;
+}
+
+/* Top Skills Section */
+.top-skills-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    z-index: 3;
+    padding: 0 3vw;
+    margin-top: 5vh;
+}
+
+.top-skills-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    box-sizing: border-box;
+}
+
+.top-skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    margin-top: 2%;
+}
+
+.top-skill-item {
+    background-color: var(--background-color-light-gray);
+    border: 1px solid var(--highlight-color-blue); /* Blue border */
+    border-radius: 4px;
+    padding: 10px 20px;
+    color: var(--primary-text-color);
+    font-family: IBM Plex Mono, var(--default-font-family);
+    font-size: 16px;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(63, 142, 0, 0.3); /* Green shadow */
+    transition: all 0.3s ease;
+}
+
+.top-skill-item:hover {
+    transform: scale(1.05);
+    background-color: var(--highlight-color-blue);
+    color: white;
+}
+
+/* Projects Section Styles */
+.projects-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    z-index: 3;
+    padding: 0 3vw;
+    margin-top: 5vh;
+}
+
+.projects-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    box-sizing: border-box;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 30px; /* Space between project items */
+    width: 100%;
+    margin-top: 2%;
+}
+
+.project-item {
+    background-color: var(--background-color-light-gray);
+    border: 2px solid var(--highlight-color-blue); /* Blue border */
+    border-radius: 8px;
+    padding: 25px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 0 8px 30px rgba(63, 142, 0, 0.3); /* Green shadow */
+    transition: transform 0.3s ease;
+}
+
+.project-item:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 12px 40px rgba(63, 142, 0, 0.6);
+}
+
+.project-title {
+    color: var(--primary-text-color);
+    font-family: Raleway, var(--default-font-family);
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.project-description {
+    color: var(--secondary-text-color);
+    font-family: IBM Plex Mono, var(--default-font-family);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.project-links {
+    display: flex;
+    gap: 15px; /* Space between links */
+}
+
+.project-link {
+    display: inline-block;
+    background-color: var(--highlight-color-green);
+    color: #ffffff;
+    font-family: IBM Plex Mono, var(--default-font-family);
+    font-size: 14px;
+    font-weight: 700;
+    padding: 8px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    border: 1px solid var(--highlight-color-green-dark);
+}
+
+.project-link:hover {
+    background-color: var(--highlight-color-green-dark);
+}
+
+/* Open to Work Section */
+.open-to-work-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    z-index: 3;
+    padding: 0 3vw;
+    margin-top: 5vh;
+}
+
+.open-to-work-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    background-color: var(--background-color-light-gray);
+    border: 2px solid var(--highlight-color-green-dark); /* Green border */
+    border-radius: 8px;
+    padding: 30px;
+    box-sizing: border-box;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(63, 142, 0, 0.5);
+}
+
+.open-to-work-text {
+    color: var(--primary-text-color);
+    font-family: IBM Plex Mono, var(--default-font-family);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 600px;
+}
+
+.open-to-work-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+    background: var(--highlight-color-green);
+    border: 1px solid var(--highlight-color-green-dark);
+    z-index: 4;
+    border-radius: 4px;
+    box-shadow: 0 8px 30px 0 rgba(63, 142, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.open-to-work-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px 0 rgba(63, 142, 0, 0.6);
+}
+
+.open-to-work-button-text {
+    color: #ffffff;
+    font-family: IBM Plex Mono, var(--default-font-family);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* My Contact Details Section */
+.my-contact-details-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    z-index: 3;
+    padding: 0 3vw;
+    margin-top: 5vh;
+}
+
+.my-contact-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    background-color: var(--background-color-light-gray);
+    border: 2px solid var(--highlight-color-blue); /* Blue border */
+    border-radius: 8px;
+    padding: 30px;
+    box-sizing: border-box;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(63, 142, 0, 0.3); /* Green shadow */
+}
+
+.contact-info-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.contact-info-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    background-color: var(--background-color-dark);
+    border-radius: 4px;
+    border: 1px solid var(--secondary-text-color);
+}
+
+.contact-label {
+    color: var(--highlight-color-orange); /* Orange color */
+    font-family: IBM Plex Mono, var(--default-font-family);
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.contact-value {
+    color: var(--primary-text-color);
+    font-family: IBM Plex Mono, var(--default-font-family);
+    font-size: 16px;
+    word-break: break-all; /* Ensure long text breaks */
+}
+
+.contact-value-link {
+    color: var(--highlight-color-blue); /* Blue for links */
+    font-family: IBM Plex Mono, var(--default-font-family);
+    font-size: 16px;
+    text-decoration: none;
+    word-break: break-all;
+    transition: all 0.3s ease;
+}
+
+.contact-value-link:hover {
+    text-decoration: underline;
+    color: white;
+}
+
+/* Contact Section (renamed from contact-us) */
+.contact-section{ /* Changed from .contact-us to .contact-section for consistency */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    z-index: 3;
+    padding: 0 3vw;
+}
+.contact-container{ /* Changed from .contact-us-container to .contact-container */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    z-index: 4;
+    width: 70%;
+    margin-bottom: 5vh;
+}
+.contact-heading{ /* Changed from .contact-us-heading to .contact-heading */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    z-index: 5;
+    width: 100%;
+    margin-bottom: 3%;
+}
+.contact-title { /* Changed from .contact-us-title to .contact-title */
+    color: #ffffff;
+    font-family: Raleway, var(--default-font-family);
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 39.916px;
+    text-align: center;
+    white-space: nowrap;
+    z-index: 6;
+    margin-bottom: 1%;
+}
+.contact-text { /* Changed from .contact-us-text to .contact-text */
+    color: var(--secondary-text-color);
+    font-family: IBM Plex Mono, var(--default-font-family);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+    white-space: nowrap;
+    letter-spacing: 0.14px;
+    z-index: 6;
+    margin-bottom: 1%;
+}
+.form-container{ /* Changed from .contact-us-form to .form-container */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    z-index: 5;
+    width: 100%;
+    margin-top: 3%;
+    padding: 3% 3% 3% 3%;
+    border: 2px solid var(--primary-text-color);
+    box-shadow: 0 8px 30px 0 rgba(63, 142, 0, 0.3);
+    border-radius: 8px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    box-sizing: border-box;
+}
+
+.input-group { /* Consolidated input group styles */
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    width: 100%;
+}
+
+label {
+    color: #ffffff;
+    font-family: IBM Plex Mono, var(--default-font-family);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 15.6px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 5;
+    display: block; /* Make label a block element for better spacing */
+    margin-bottom: 8px; /* Space between label and input */
+}
+
+input,
+textarea {
+    width: calc(100% - 20px); /* Adjust width for padding and border */
+    padding: 10px;
+    border: 1px solid var(--secondary-text-color);
+    background-color: transparent; /* Transparent background for inputs */
+    color: var(--primary-text-color); /* Text color for input */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    border-radius: 4px;
+}
+
+input{
+    height: 8vh;
+}
+
+textarea{
+    height: 30vh;
+    resize: vertical; /* Allow vertical resizing of textarea */
+}
+
+#email::placeholder,
+#mobile::placeholder,
+#message::placeholder {
+    color: #757575;
+    font-family: IBM Plex Mono, var(--default-font-family);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 36px; /* Adjusted line-height for placeholder */
+    text-align: left;
+    z-index: 6;  
+}
+
+.call-to-action {
+    cursor: pointer;
+    background: var(--highlight-color-green);
+    border: 1px solid var(--highlight-color-green-dark);
+    z-index: 7;
+    border-radius: 4px;
+    box-shadow: 0 8px 30px 0 rgba(63, 142, 0, 0.3);
+    height: 10vh;
+    width: 100%; /* Make button take full width of form container */
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+    transition: all 0.3s ease;
+}
+
+.call-to-action:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px 0 rgba(63, 142, 0, 0.6);
+}
+
+.submit {
+    color: #ffffff;
+    font-family: IBM Plex Mono, var(--default-font-family);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px;
+    text-align: center; /* Center the text in the button */
+    white-space: nowrap;
+    z-index: 8;
+}
+
+/* Footer */
+.footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: var(--background-color-light-gray);
+    width: 100%;
+    height: 12vh;
+    z-index: 3;
+    margin-top: 5vh;
+}
+
+.shivam-2025 {
+    color: var(--secondary-text-color);
+    font-family: IBM Plex Mono, var(--default-font-family);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18.2px;
+    text-align: left;
+    white-space: nowrap;
+    letter-spacing: 0.14px;
+    z-index: 4;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        width: 100vw;
+        margin-left: 0;
+        margin-right: 0;
+        border-radius: 0;
+        height: auto;
+        padding: 10px 20px; /* Adjusted padding */
+        justify-content: space-between; /* Space out hamburger and nav links */
+    }
+
+    .nav-links-list {
+        display: none; /* Hide by default on mobile */
+        flex-direction: column;
+        height: auto;
+        width: 100%;
+        position: absolute;
+        top: 100%; /* Position below the navbar */
+        left: 0;
+        background-color: var(--background-color-dark);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        border-radius: 0 0 8px 8px;
+        padding: 10px 0;
+        transition: all 0.3s ease-in-out;
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none; /* Disable interaction when hidden */
+    }
+
+    .nav-links-list.active {
+        display: flex; /* Show when active */
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: all; /* Enable interaction when active */
+    }
+
+    .nav-button {
+        width: 90%;
+        margin-bottom: 5px;
+        justify-content: center;
+    }
+
+    .hamburger-menu {
+        display: block; /* Show hamburger on mobile */
+    }
+
+    .home-container {
+        flex-direction: column;
+        align-items: center;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 15vh; /* Adjust for stacked navbar */
+    }
+
+    .home-content,
+    .profile-photo {
+        width: 90%;
+        margin-left: 0;
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .Line-1, .Line-2, .Line-3 {
+        font-size: 36px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .about-text, .quote {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .edu-button {
+        width: 80%;
+    }
+
+    .college-container,
+    .school-container,
+    .Matriculation-container,
+    .table-container,
+    .skills-container,
+    .top-skills-container,
+    .projects-container,
+    .open-to-work-container,
+    .my-contact-details-container,
+    .certifications-container,
+    .contact-container {
+        width: 90%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .college, .school, .Matriculation {
+        width: 100%;
+        border-right: none;
+        border-bottom: 2px solid var(--primary-text-color);
+    }
+
+    .college-logo, .school-logo, .school-logo-10 {
+        width: 100%;
+        height: 150px; /* Fixed height for logos on mobile */
+        border-top: 2px solid var(--primary-text-color);
+    }
+
+    .slideshow-container {
+        width: 90%;
+    }
+
+    .certificate-image-placeholder {
+        height: 150px;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr; /* Single column on mobile */
+    }
+
+    .form-container {
+        width: 90%;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    .input-group,
+    .call-to-action {
+        width: 100%;
+    }
+
+    .experience-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .experience-duration {
+        margin-top: 5px;
+    }
+}
