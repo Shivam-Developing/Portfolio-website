@@ -15,6 +15,38 @@
     --border-color: #9c9c9c;
 }
 
+
+/* ============================================
+   TOUCH & SCROLL OPTIMIZATIONS
+   ============================================ */
+html {
+    touch-action: pan-y; /* Allow vertical scroll, prevent horizontal */
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    touch-action: pan-y pan-x;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+/* Smooth scrolling for the whole page */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Remove default touch callout on mobile */
+button, .nav-button, .hamburger-menu {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* Disable pull-to-refresh on mobile (optional) */
+body {
+    overscroll-behavior-y: none;
+}
+
 body{
     margin: 0;
     padding: 0;
@@ -1491,4 +1523,1307 @@ textarea{
     .experience-duration {
         margin-top: 5px;
     }
+}
+
+
+/* ============================================
+   RESPONSIVE ENHANCEMENTS
+   Added comprehensive mobile support while 
+   preserving exact desktop layout
+   ============================================ */
+
+/* Fluid Typography Scale */
+:root {
+    --fluid-base: clamp(14px, 1vw + 12px, 16px);
+    --fluid-h1: clamp(32px, 5vw + 16px, 54px);
+    --fluid-h2: clamp(24px, 3vw + 16px, 34px);
+    --fluid-h3: clamp(18px, 2vw + 14px, 22px);
+    --fluid-body: clamp(12px, 1vw + 10px, 16px);
+    --fluid-small: clamp(10px, 0.8vw + 8px, 14px);
+}
+
+/* Base responsive adjustments */
+html {
+    font-size: var(--fluid-base);
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevent horizontal overflow */
+body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+}
+
+/* Ensure images don't overflow */
+img, video, canvas, svg {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ============================================
+   TABLET BREAKPOINT (max-width: 1024px)
+   ============================================ */
+@media (max-width: 1024px) {
+    /* Navbar adjustments */
+    .navbar {
+        width: 96vw;
+        margin-left: 2vw;
+        margin-right: 2vw;
+    }
+
+    .nav-links-list {
+        margin-left: 1vw;
+        margin-right: 1vw;
+    }
+
+    .nav-button {
+        font-size: 13px;
+        padding: 6px 12px;
+        margin-left: 1px;
+        margin-right: 1px;
+    }
+
+    /* Home section */
+    .home-container {
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+
+    .home-content {
+        margin-left: 2vw;
+    }
+
+    .Line-1, .Line-2, .Line-3 {
+        font-size: clamp(28px, 4vw, 48px);
+    }
+
+    .Line-3 {
+        width: auto;
+        max-width: 55vw;
+    }
+
+    /* Education containers */
+    .college-container,
+    .school-container,
+    .Matriculation-container,
+    .table-container {
+        width: 85%;
+    }
+
+    /* Section containers */
+    .experience-container,
+    .certifications-container,
+    .skills-container,
+    .top-skills-container,
+    .projects-container,
+    .open-to-work-container,
+    .my-contact-details-container,
+    .contact-container {
+        width: 85%;
+    }
+
+    /* Skills list */
+    .skills-list {
+        width: 85%;
+    }
+
+    /* Project grid - 2 columns */
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ============================================
+   MOBILE BREAKPOINT (max-width: 768px)
+   ============================================ */
+@media (max-width: 768px) {
+    /* Navbar - Mobile optimized */
+    .navbar {
+        width: 100vw;
+        margin-left: 0;
+        margin-right: 0;
+        border-radius: 0;
+        height: auto;
+        min-height: 60px;
+        padding: 10px 15px;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .nav-links-list {
+        display: none;
+        flex-direction: column;
+        height: auto;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: var(--background-color-dark);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        border-radius: 0 0 8px 8px;
+        padding: 10px 0;
+        margin: 0;
+        z-index: 100;
+        transition: all 0.3s ease-in-out;
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+
+    .nav-links-list.active {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: all;
+    }
+
+    .nav-button {
+        width: 90%;
+        margin: 5px auto;
+        justify-content: center;
+        font-size: 14px;
+        padding: 12px 16px;
+        min-height: 44px; /* Touch target size */
+    }
+
+    .hamburger-menu {
+        display: block;
+        font-size: 24px;
+        padding: 10px;
+        cursor: pointer;
+        color: var(--primary-text-color);
+    }
+
+    /* Home section - Stacked layout */
+    .home-container {
+        flex-direction: column;
+        align-items: center;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 80px; /* Account for fixed navbar */
+        padding: 0 15px;
+    }
+
+    .home-content {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        text-align: center;
+        align-items: center;
+        order: 2; /* Text below photo */
+    }
+
+    .profile-photo {
+        width: 100%;
+        margin: 20px 0;
+        order: 1; /* Photo on top */
+    }
+
+    .photo {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+    }
+
+    .Line-1, .Line-2, .Line-3 {
+        font-size: clamp(24px, 8vw, 36px);
+        text-align: center;
+        width: 100%;
+        white-space: normal;
+    }
+
+    .Line-3 {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .about-me {
+        width: 100%;
+        text-align: center;
+    }
+
+    .about-text {
+        font-size: 14px;
+        line-height: 1.6;
+        text-align: center;
+    }
+
+    .quote {
+        font-size: 14px;
+        padding: 0 15px;
+        margin-top: 30px;
+        line-height: 1.4;
+    }
+
+    .edu-button {
+        width: 90%;
+        max-width: 300px;
+        height: auto;
+        min-height: 50px;
+        margin: 20px auto;
+    }
+
+    .view-education-background {
+        font-size: 16px;
+        white-space: normal;
+        text-align: center;
+    }
+
+    /* Education section */
+    .education-title {
+        font-size: clamp(24px, 6vw, 32px);
+        white-space: normal;
+        padding: 0 15px;
+    }
+
+    .edu-text {
+        white-space: normal;
+        padding: 0 15px;
+    }
+
+    .college-container,
+    .school-container,
+    .Matriculation-container {
+        flex-direction: column;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .college,
+    .school,
+    .Matriculation {
+        width: 100%;
+        border-right: none;
+        border-bottom: 2px solid var(--primary-text-color);
+        padding: 20px;
+    }
+
+    .college-logo,
+    .school-logo,
+    .school-logo-10 {
+        width: 100%;
+        height: 120px;
+        border-top: none;
+    }
+
+    .rgipt-logo,
+    .TPS-logo,
+    .TPS-logo-10 {
+        width: 100px;
+        height: 100px;
+        margin: 10px auto;
+    }
+
+    .college-Title,
+    .school-title,
+    .school-title-10 {
+        font-size: clamp(18px, 5vw, 24px);
+        white-space: normal;
+    }
+
+    .education-details,
+    .school-edu-details-12,
+    .school-edu-details-10 {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    /* Table adjustments */
+    .table-container {
+        width: 95%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+        min-width: 600px;
+        font-size: 12px;
+    }
+
+    thead th {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    tbody td {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    /* Section titles */
+    .section-title {
+        font-size: clamp(24px, 6vw, 32px);
+        white-space: normal;
+        padding: 0 15px;
+    }
+
+    .section-subtitle {
+        white-space: normal;
+        padding: 0 15px;
+        font-size: 13px;
+    }
+
+    /* Experience section */
+    .experience-container {
+        width: 90%;
+    }
+
+    .experience-item {
+        padding: 20px;
+    }
+
+    .experience-header {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .experience-title {
+        font-size: 18px;
+    }
+
+    .experience-duration {
+        font-size: 12px;
+    }
+
+    .experience-role {
+        font-size: 14px;
+    }
+
+    /* Certifications slideshow */
+    .certifications-container {
+        width: 90%;
+    }
+
+    .slideshow-container {
+        width: 100%;
+    }
+
+    .certificate-image-placeholder1,
+    .certificate-image-placeholder2,
+    .certificate-image-placeholder3,
+    .certificate-image-placeholder4,
+    .certificate-image-placeholder5,
+    .certificate-image-placeholder6 {
+        height: 180px;
+    }
+
+    .certification-text {
+        font-size: 14px;
+    }
+
+    .prev, .next {
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    /* Skills section */
+    .skills-container,
+    .top-skills-container {
+        width: 90%;
+    }
+
+    .skills-title {
+        font-size: clamp(24px, 6vw, 32px);
+    }
+
+    .skills-category-title {
+        font-size: clamp(18px, 4vw, 24px);
+    }
+
+    .skills-list {
+        width: 100%;
+        gap: 10px;
+    }
+
+    .skill-item,
+    .top-skill-item {
+        font-size: 13px;
+        padding: 8px 14px;
+    }
+
+    /* Projects section */
+    .projects-container {
+        width: 90%;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .project-item {
+        padding: 20px;
+    }
+
+    .project-title {
+        font-size: 18px;
+    }
+
+    .project-description {
+        font-size: 13px;
+    }
+
+    /* Open to work section */
+    .open-to-work-container {
+        width: 90%;
+        padding: 25px 20px;
+    }
+
+    .open-to-work-text {
+        font-size: 14px;
+    }
+
+    /* Contact details */
+    .my-contact-details-container {
+        width: 90%;
+        padding: 25px 20px;
+    }
+
+    .contact-info-grid {
+        gap: 12px;
+    }
+
+    .contact-info-item {
+        padding: 12px;
+    }
+
+    .contact-label {
+        font-size: 12px;
+    }
+
+    .contact-value,
+    .contact-value-link {
+        font-size: 14px;
+    }
+
+    /* Contact form */
+    .contact-container {
+        width: 90%;
+    }
+
+    .form-container {
+        width: 100%;
+        padding: 20px;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    .input-group {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-size: 13px;
+    }
+
+    input {
+        height: 44px; /* Touch target */
+        font-size: 16px; /* Prevent zoom on iOS */
+    }
+
+    textarea {
+        height: 120px;
+        font-size: 16px; /* Prevent zoom on iOS */
+    }
+
+    .call-to-action {
+        height: 50px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    /* Footer */
+    .footer {
+        height: auto;
+        min-height: 60px;
+        padding: 15px;
+    }
+
+    .shivam-2025 {
+        font-size: 12px;
+    }
+}
+
+/* ============================================
+   SMALL MOBILE BREAKPOINT (max-width: 480px)
+   ============================================ */
+@media (max-width: 480px) {
+    /* Further optimizations for small screens */
+    .navbar {
+        padding: 8px 10px;
+    }
+
+    .hamburger-menu {
+        font-size: 22px;
+    }
+
+    .home-container {
+        margin-top: 70px;
+        padding: 0 10px;
+    }
+
+    .photo {
+        width: 150px;
+        height: 150px;
+    }
+
+    .Line-1, .Line-2, .Line-3 {
+        font-size: clamp(20px, 7vw, 28px);
+    }
+
+    .about-text {
+        font-size: 13px;
+    }
+
+    .quote {
+        font-size: 12px;
+        margin-top: 20px;
+    }
+
+    .edu-button {
+        width: 95%;
+    }
+
+    .view-education-background {
+        font-size: 14px;
+    }
+
+    /* Education */
+    .college-container,
+    .school-container,
+    .Matriculation-container {
+        width: 95%;
+    }
+
+    .college,
+    .school,
+    .Matriculation {
+        padding: 15px;
+    }
+
+    .button {
+        padding: 6px 12px;
+    }
+
+    .undergraduate-degree,
+    .Intermediate-Button,
+    .Matriculation-Button {
+        font-size: 12px;
+    }
+
+    .college-Title,
+    .school-title,
+    .school-title-10 {
+        font-size: 16px;
+    }
+
+    .education-details,
+    .school-edu-details-12,
+    .school-edu-details-10 {
+        font-size: 12px;
+    }
+
+    /* Table */
+    table {
+        font-size: 11px;
+    }
+
+    thead th {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    tbody td {
+        font-size: 11px;
+        padding: 6px;
+    }
+
+    /* Sections */
+    .section-title {
+        font-size: clamp(20px, 6vw, 26px);
+    }
+
+    .section-subtitle {
+        font-size: 12px;
+    }
+
+    /* Experience */
+    .experience-item {
+        padding: 15px;
+    }
+
+    .experience-title {
+        font-size: 16px;
+    }
+
+    .experience-role {
+        font-size: 13px;
+    }
+
+    .experience-location {
+        font-size: 12px;
+    }
+
+    .experience-description {
+        font-size: 12px;
+    }
+
+    /* Certifications */
+    .certificate-image-placeholder1,
+    .certificate-image-placeholder2,
+    .certificate-image-placeholder3,
+    .certificate-image-placeholder4,
+    .certificate-image-placeholder5,
+    .certificate-image-placeholder6 {
+        height: 140px;
+    }
+
+    .certification-text {
+        font-size: 13px;
+    }
+
+    .dot {
+        height: 12px;
+        width: 12px;
+    }
+
+    /* Skills */
+    .skills-category-title {
+        font-size: 16px;
+    }
+
+    .skill-item,
+    .top-skill-item {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+
+    /* Projects */
+    .project-item {
+        padding: 15px;
+    }
+
+    .project-title {
+        font-size: 16px;
+    }
+
+    .project-description {
+        font-size: 12px;
+    }
+
+    /* Open to work */
+    .open-to-work-container {
+        padding: 20px 15px;
+    }
+
+    .open-to-work-text {
+        font-size: 13px;
+    }
+
+    .open-to-work-button {
+        width: 100%;
+        height: 44px;
+    }
+
+    .open-to-work-button-text {
+        font-size: 16px;
+    }
+
+    /* Contact */
+    .my-contact-details-container {
+        padding: 20px 15px;
+    }
+
+    .contact-label {
+        font-size: 11px;
+    }
+
+    .contact-value,
+    .contact-value-link {
+        font-size: 13px;
+    }
+
+    /* Form */
+    .form-container {
+        padding: 15px;
+    }
+
+    label {
+        font-size: 12px;
+    }
+
+    input, textarea {
+        font-size: 16px; /* Prevent iOS zoom */
+    }
+
+    .call-to-action {
+        height: 44px;
+    }
+
+    .submit {
+        font-size: 14px;
+    }
+}
+
+/* ============================================
+   LANDSCAPE ORIENTATION FIXES
+   ============================================ */
+@media (max-height: 500px) and (orientation: landscape) {
+    .navbar {
+        position: relative;
+    }
+
+    .home-container {
+        margin-top: 20px;
+        flex-direction: row;
+    }
+
+    .home-content {
+        width: 60%;
+        order: 1;
+    }
+
+    .profile-photo {
+        width: 40%;
+        order: 2;
+    }
+
+    .photo {
+        width: 120px;
+        height: 120px;
+    }
+
+    .Line-1, .Line-2, .Line-3 {
+        font-size: 24px;
+    }
+
+    .nav-links-list {
+        max-height: 60vh;
+    }
+}
+
+/* ============================================
+   HIGH DPI / RETINA DISPLAYS
+   ============================================ */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .photo,
+    .rgipt-logo,
+    .TPS-logo,
+    .TPS-logo-10 {
+        background-size: contain;
+    }
+}
+
+/* ============================================
+   PRINT STYLES (for saving as PDF)
+   ============================================ */
+@media print {
+    .navbar,
+    .hamburger-menu,
+    .edu-button,
+    .open-to-work-button,
+    .call-to-action,
+    .prev,
+    .next,
+    .dot-navigation {
+        display: none !important;
+    }
+
+    body {
+        background: white;
+        color: black;
+    }
+
+    .home-container,
+    .college-container,
+    .school-container,
+    .Matriculation-container {
+        break-inside: avoid;
+    }
+}
+
+
+/* ============================================
+   NETLIFY CONTACT FORM STYLES
+   ============================================ */
+
+/* Required field indicator */
+.required {
+    color: #ff6b6b;
+    margin-left: 2px;
+}
+
+/* Form note (security message) */
+.form-note {
+    color: var(--secondary-text-color);
+    font-family: IBM Plex Mono, var(--default-font-family);
+    font-size: 12px;
+    text-align: center;
+    margin-top: 20px;
+    opacity: 0.8;
+}
+
+/* Success Message Styles */
+.form-success-message {
+    width: 70%;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 40px;
+    background: linear-gradient(135deg, rgba(63, 142, 0, 0.1) 0%, rgba(97, 185, 27, 0.1) 100%);
+    border: 2px solid var(--highlight-color-green);
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(63, 142, 0, 0.3);
+    animation: slideInUp 0.5s ease-out;
+}
+
+.success-content h3 {
+    color: var(--highlight-color-green);
+    font-family: Raleway, var(--default-font-family);
+    font-size: 24px;
+    font-weight: 800;
+    margin: 20px 0 10px 0;
+}
+
+.success-content p {
+    color: var(--primary-text-color);
+    font-family: IBM Plex Mono, var(--default-font-family);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.success-icon {
+    font-size: 60px;
+    color: var(--highlight-color-green);
+    margin-bottom: 10px;
+}
+
+.success-close-btn {
+    background: var(--highlight-color-green);
+    color: white;
+    border: 1px solid var(--highlight-color-green-dark);
+    padding: 12px 30px;
+    font-family: IBM Plex Mono, var(--default-font-family);
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 30px rgba(63, 142, 0, 0.3);
+}
+
+.success-close-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(63, 142, 0, 0.6);
+    background: var(--highlight-color-green-dark);
+}
+
+/* Error Message Styles */
+.form-error-message {
+    width: 70%;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 40px;
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(255, 71, 87, 0.1) 100%);
+    border: 2px solid #ff6b6b;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(255, 107, 107, 0.3);
+    animation: slideInUp 0.5s ease-out;
+}
+
+.error-content h3 {
+    color: #ff6b6b;
+    font-family: Raleway, var(--default-font-family);
+    font-size: 24px;
+    font-weight: 800;
+    margin: 20px 0 10px 0;
+}
+
+.error-content p {
+    color: var(--primary-text-color);
+    font-family: IBM Plex Mono, var(--default-font-family);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.error-icon {
+    font-size: 60px;
+    color: #ff6b6b;
+    margin-bottom: 10px;
+}
+
+.error-close-btn {
+    background: transparent;
+    color: #ff6b6b;
+    border: 2px solid #ff6b6b;
+    padding: 12px 30px;
+    font-family: IBM Plex Mono, var(--default-font-family);
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.error-close-btn:hover {
+    background: #ff6b6b;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(255, 107, 107, 0.4);
+}
+
+/* Loading state for submit button */
+.call-to-action:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* Animations */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Honeypot field - ensure it's hidden */
+.hidden {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+}
+
+/* Subject field styling (new field) */
+#subject {
+    width: calc(100% - 20px);
+}
+
+/* Mobile responsiveness for form messages */
+@media (max-width: 768px) {
+    .form-success-message,
+    .form-error-message {
+        width: 90%;
+        padding: 30px 20px;
+    }
+
+    .success-content h3,
+    .error-content h3 {
+        font-size: 20px;
+    }
+
+    .success-content p,
+    .error-content p {
+        font-size: 13px;
+    }
+
+    .success-icon,
+    .error-icon {
+        font-size: 50px;
+    }
+
+    .form-note {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-success-message,
+    .form-error-message {
+        width: 95%;
+        padding: 25px 15px;
+    }
+
+    .success-close-btn,
+    .error-close-btn {
+        width: 100%;
+        padding: 12px;
+    }
+}
+
+/* Focus states for accessibility */
+input:focus,
+textarea:focus {
+    border-color: var(--highlight-color-blue) !important;
+    box-shadow: 0 0 0 2px rgba(79, 189, 210, 0.2);
+}
+
+/* Validation styles */
+input:invalid:not(:placeholder-shown),
+textarea:invalid:not(:placeholder-shown) {
+    border-color: #ff6b6b;
+}
+
+input:valid:not(:placeholder-shown),
+textarea:valid:not(:placeholder-shown) {
+    border-color: var(--highlight-color-green);
+}
+
+
+/* ============================================
+   NETLIFY CONTACT FORM STYLES
+   ============================================ */
+
+/* Required field indicator */
+.required {
+    color: #ff6b6b;
+    margin-left: 2px;
+}
+
+/* Form note (security message) */
+.form-note {
+    color: var(--secondary-text-color);
+    font-family: IBM Plex Mono, var(--default-font-family);
+    font-size: 12px;
+    text-align: center;
+    margin-top: 20px;
+    opacity: 0.8;
+}
+
+/* Success Message Styles */
+.form-success-message {
+    width: 70%;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 40px;
+    background: linear-gradient(135deg, rgba(63, 142, 0, 0.1) 0%, rgba(97, 185, 27, 0.1) 100%);
+    border: 2px solid var(--highlight-color-green);
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(63, 142, 0, 0.3);
+    animation: slideInUp 0.5s ease-out;
+}
+
+.success-content h3 {
+    color: var(--highlight-color-green);
+    font-family: Raleway, var(--default-font-family);
+    font-size: 24px;
+    font-weight: 800;
+    margin: 20px 0 10px 0;
+}
+
+.success-content p {
+    color: var(--primary-text-color);
+    font-family: IBM Plex Mono, var(--default-font-family);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.success-icon {
+    font-size: 60px;
+    color: var(--highlight-color-green);
+    margin-bottom: 10px;
+}
+
+.success-close-btn {
+    background: var(--highlight-color-green);
+    color: white;
+    border: 1px solid var(--highlight-color-green-dark);
+    padding: 12px 30px;
+    font-family: IBM Plex Mono, var(--default-font-family);
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 30px rgba(63, 142, 0, 0.3);
+}
+
+.success-close-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(63, 142, 0, 0.6);
+    background: var(--highlight-color-green-dark);
+}
+
+/* Error Message Styles */
+.form-error-message {
+    width: 70%;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 40px;
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(255, 71, 87, 0.1) 100%);
+    border: 2px solid #ff6b6b;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(255, 107, 107, 0.3);
+    animation: slideInUp 0.5s ease-out;
+}
+
+.error-content h3 {
+    color: #ff6b6b;
+    font-family: Raleway, var(--default-font-family);
+    font-size: 24px;
+    font-weight: 800;
+    margin: 20px 0 10px 0;
+}
+
+.error-content p {
+    color: var(--primary-text-color);
+    font-family: IBM Plex Mono, var(--default-font-family);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.error-icon {
+    font-size: 60px;
+    color: #ff6b6b;
+    margin-bottom: 10px;
+}
+
+.error-close-btn {
+    background: transparent;
+    color: #ff6b6b;
+    border: 2px solid #ff6b6b;
+    padding: 12px 30px;
+    font-family: IBM Plex Mono, var(--default-font-family);
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.error-close-btn:hover {
+    background: #ff6b6b;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(255, 107, 107, 0.4);
+}
+
+/* Loading state for submit button */
+.call-to-action:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* Animations */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Honeypot field - ensure it's hidden */
+.hidden {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+}
+
+/* Subject field styling (new field) */
+#subject {
+    width: calc(100% - 20px);
+}
+
+/* Mobile responsiveness for form messages */
+@media (max-width: 768px) {
+    .form-success-message,
+    .form-error-message {
+        width: 90%;
+        padding: 30px 20px;
+    }
+
+    .success-content h3,
+    .error-content h3 {
+        font-size: 20px;
+    }
+
+    .success-content p,
+    .error-content p {
+        font-size: 13px;
+    }
+
+    .success-icon,
+    .error-icon {
+        font-size: 50px;
+    }
+
+    .form-note {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-success-message,
+    .form-error-message {
+        width: 95%;
+        padding: 25px 15px;
+    }
+
+    .success-close-btn,
+    .error-close-btn {
+        width: 100%;
+        padding: 12px;
+    }
+}
+
+/* Focus states for accessibility */
+input:focus,
+textarea:focus {
+    border-color: var(--highlight-color-blue) !important;
+    box-shadow: 0 0 0 2px rgba(79, 189, 210, 0.2);
+}
+
+/* Validation styles */
+input:invalid:not(:placeholder-shown),
+textarea:invalid:not(:placeholder-shown) {
+    border-color: #ff6b6b;
+}
+
+input:valid:not(:placeholder-shown),
+textarea:valid:not(:placeholder-shown) {
+    border-color: var(--highlight-color-green);
+}
+
+/* Submit button with icon */
+.call-to-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
