@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="theme-color" content="#080808">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>My Portfolio</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=SourceSansPro:wght@900&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&display=swap" />
@@ -11,7 +14,7 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body>
+<body style="touch-action: pan-y;">
     <nav class="navbar">
         <div class="hamburger-menu" id="hamburger-menu">
             <i class="fas fa-bars"></i>
@@ -34,7 +37,7 @@
             <div class="home-container">
                 <div class="home-content animate-on-scroll">
                     <div class="home-text">
-                        <h3 class="Line-1">Hi, I’m </h3>
+                        <h3 class="Line-1">Hi, I'm </h3>
                         <h1 class="Line-2">Shivam Dhanda</h1>
                         <span class="">-</span><span class="Line-3" id="text-display">Computer Science Student</span>
                     </div>
@@ -57,7 +60,7 @@
         <section class="education-section" id="education-section">
             <div class="education-title animate-on-scroll">EDUCATION SECTION</div>
             <div class="edu-text animate-on-scroll">Take a look at my education background</div>
-            
+
             <div class="college-container animate-on-scroll">
                 <div class="college">
                     <button class="button">
@@ -261,7 +264,7 @@
                 <div class="skills-text animate-on-scroll">
                     SKILLS I COLLECTED IN TWO YEARS OF MY COLLEGE LIFE
                 </div>
-                
+
                 <!-- Removed Web Development Banner -->
 
                 <!-- New section for Web Development & Backend -->
@@ -438,25 +441,127 @@
             </div>
         </section>
 
+        <!-- ENHANCED CONTACT SECTION WITH NETLIFY FORMS -->
         <section class="contact-section" id="contact-section">
             <div class="contact-container">
                 <span class="section-title animate-on-scroll">GET IN TOUCH</span>
                 <span class="section-subtitle animate-on-scroll">Feel free to contact me any time</span>
-                <div class="form-container animate-on-scroll">
-                    <form action="#" method="post">
+
+                <!-- Success Message (Hidden by default) -->
+                <div id="form-success" class="form-success-message" style="display: none;">
+                    <div class="success-content">
+                        <i class="fas fa-check-circle success-icon"></i>
+                        <h3>Message Sent Successfully!</h3>
+                        <p>Thank you for reaching out. I'll get back to you as soon as possible.</p>
+                        <button class="success-close-btn" onclick="resetForm()">Send Another Message</button>
+                    </div>
+                </div>
+
+                <!-- Error Message (Hidden by default) -->
+                <div id="form-error" class="form-error-message" style="display: none;">
+                    <div class="error-content">
+                        <i class="fas fa-exclamation-circle error-icon"></i>
+                        <h3>Oops! Something went wrong.</h3>
+                        <p>Please try again later or contact me directly via email.</p>
+                        <button class="error-close-btn" onclick="hideError()">Try Again</button>
+                    </div>
+                </div>
+
+                <div class="form-container animate-on-scroll" id="form-container">
+                    <!-- 
+                        NETLIFY FORM SETUP:
+                        1. data-netlify="true" - Enables Netlify form handling
+                        2. name="contact" - Form identifier in Netlify dashboard
+                        3. netlify-honeypot="bot-field" - Spam protection (hidden field)
+                        4. hidden form-name input - Required for Netlify to identify form
+                        5. action="/" - Where to redirect after submission (we handle this with JS)
+                        6. method="POST" - Required for form submission
+                    -->
+                    <form 
+                        name="contact" 
+                        method="POST" 
+                        data-netlify="true" 
+                        netlify-honeypot="bot-field"
+                        action="/"
+                        id="contact-form"
+                    >
+                        <!-- Honeypot field - hidden from humans, traps bots -->
+                        <p class="hidden" style="display: none;">
+                            <label>
+                                Don't fill this out if you're human: 
+                                <input name="bot-field" />
+                            </label>
+                        </p>
+
+                        <!-- Required hidden field for Netlify - MUST match form name attribute -->
+                        <input type="hidden" name="form-name" value="contact" />
+
                         <div class="input-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="Please enter your email" required>
+                            <label for="name">Name <span class="required">*</span></label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                name="name" 
+                                placeholder="Please enter your name" 
+                                required
+                                autocomplete="name"
+                            >
                         </div>
+
+                        <div class="input-group">
+                            <label for="email">Email <span class="required">*</span></label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                placeholder="Please enter your email" 
+                                required
+                                autocomplete="email"
+                            >
+                        </div>
+
                         <div class="input-group">
                             <label for="mobile">Mobile</label>
-                            <input type="tel" id="mobile" name="mobile" placeholder="Enter mobile" required>
+                            <input 
+                                type="tel" 
+                                id="mobile" 
+                                name="mobile" 
+                                placeholder="Enter your mobile number (optional)"
+                                autocomplete="tel"
+                            >
                         </div>
+
                         <div class="input-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+                            <label for="subject">Subject <span class="required">*</span></label>
+                            <input 
+                                type="text" 
+                                id="subject" 
+                                name="subject" 
+                                placeholder="What is this regarding?" 
+                                required
+                            >
                         </div>
-                        <button class="call-to-action" type="submit"><span class="submit">Submit</span></button>
+
+                        <div class="input-group">
+                            <label for="message">Message <span class="required">*</span></label>
+                            <textarea 
+                                id="message" 
+                                name="message" 
+                                placeholder="Enter your message here..." 
+                                required
+                                rows="6"
+                            ></textarea>
+                        </div>
+
+                        <button class="call-to-action" type="submit" id="submit-btn">
+                            <span class="submit">Send Message</span>
+                            <i class="fas fa-paper-plane" style="margin-left: 8px;"></i>
+                        </button>
+
+                        <p class="form-note">
+                            <i class="fas fa-shield-alt" style="margin-right: 5px;"></i>
+                            Your information is secure and will never be shared.
+                        </p>
                     </form>
                 </div>
             </div>
