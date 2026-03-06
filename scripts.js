@@ -1,7 +1,7 @@
 // Typewriter Effect Module
 const typewriter = (function() {
     const textDisplay = document.getElementById('text-display');
-    const texts = ["Computer Science Student", "Web Developer", "Android Developer", "Python Programmer", "GEN AI Engineer", "Tech Enthusiast", "Business Analyst"];
+    const texts = ["Computer Science Student", "Full Stack Developer", "AI/ML Engineer", "Agentic AI Developer", "Backend Developer", "Python Programmer", "Tech Enthusiast"];
     let currentTextIndex = 0;
     let currentCharacterIndex = 0;
     let isDeleting = false;
@@ -47,7 +47,9 @@ const quoteGenerator = (function() {
         "The only way to do great work is to love what you do. - Steve Jobs",
         "Innovation distinguishes between a leader and a follower. - Steve Jobs",
         "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-        "Strive not to be a success, but rather to be of value. - Albert Einstein"
+        "Strive not to be a success, but rather to be of value. - Albert Einstein",
+        "Code is like humor. When you have to explain it, it's bad. - Cory House",
+        "First, solve the problem. Then, write the code. - John Johnson"
     ];
     let currentQuoteIndex = 0;
     const intervalTime = 10000;
@@ -80,8 +82,9 @@ const navigation = (function() {
     function smoothScroll(targetId) {
         const targetElement = document.getElementById(targetId);
         if (targetElement) {
+            const offsetTop = targetElement.offsetTop - 80;
             window.scrollTo({
-                top: targetElement.offsetTop - 80,
+                top: offsetTop,
                 behavior: 'smooth'
             });
         }
@@ -105,7 +108,7 @@ const navigation = (function() {
         scrollButtons.forEach(button => {
             button.addEventListener('click', (event) => {
                 event.preventDefault();
-                const targetId = event.target.dataset.target;
+                const targetId = event.currentTarget.dataset.target;
                 smoothScroll(targetId);
             });
         });
@@ -116,59 +119,14 @@ const navigation = (function() {
         hamburgerMenu.addEventListener('click', () => {
             navLinksList.classList.toggle('active');
         });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!event.target.closest('.navbar') && navLinksList.classList.contains('active')) {
+                navLinksList.classList.remove('active');
+            }
+        });
     }
-
-    return {
-        init: init
-    };
-})();
-
-// Certifications Slideshow Module
-const slideshow = (function() {
-    let slideIndex = 1;
-    let autoSlideInterval;
-
-    function showSlides(n) {
-        let i;
-        let slides = document.getElementsByClassName("mySlides");
-        let dots = document.getElementsByClassName("dot");
-        if (n > slides.length) { slideIndex = 1 }
-        if (n < 1) { slideIndex = slides.length }
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex - 1].style.display = "block";
-        dots[slideIndex - 1].className += " active";
-    }
-
-    function plusSlides(n) {
-        clearTimeout(autoSlideInterval);
-        showSlides(slideIndex += n);
-        startAutoSlideshow();
-    }
-
-    function currentSlide(n) {
-        clearTimeout(autoSlideInterval);
-        showSlides(slideIndex = n);
-        startAutoSlideshow();
-    }
-
-    function startAutoSlideshow() {
-        autoSlideInterval = setTimeout(() => {
-            plusSlides(1);
-        }, 5000);
-    }
-
-    function init() {
-        showSlides(slideIndex);
-        startAutoSlideshow();
-    }
-
-    window.plusSlides = plusSlides;
-    window.currentSlide = currentSlide;
 
     return {
         init: init
@@ -206,10 +164,37 @@ const scrollAnimation = (function() {
     };
 })();
 
-// ============================================
-// NETLIFY CONTACT FORM MODULE
-// Handles AJAX form submission with fetch API
-// ============================================
+// Active Navigation Highlight
+const activeNavHighlight = (function() {
+    function init() {
+        const sections = document.querySelectorAll('section[id]');
+        const navButtons = document.querySelectorAll('.nav-button[data-target]');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navButtons.forEach(button => {
+                button.classList.remove('active');
+                if (button.dataset.target === current) {
+                    button.classList.add('active');
+                }
+            });
+        });
+    }
+
+    return {
+        init: init
+    };
+})();
+
+// Contact Form Module
 const contactForm = (function() {
     const form = document.getElementById('contact-form');
     const submitBtn = document.getElementById('submit-btn');
@@ -224,27 +209,17 @@ const contactForm = (function() {
         }
 
         form.addEventListener('submit', handleSubmit);
-        console.log('Netlify contact form initialized');
+        console.log('Contact form initialized');
     }
 
     async function handleSubmit(event) {
         event.preventDefault();
         console.log('Form submission started...');
 
-        // Show loading state
         setLoadingState(true);
-
-        // Get form data
         const formData = new FormData(form);
 
-        // Debug: Log form data
-        for (let [key, value] of formData.entries()) {
-            console.log(`${key}: ${value}`);
-        }
-
         try {
-            // Submit to Netlify using fetch API
-            // According to Netlify docs: POST to "/" with URL-encoded body
             const response = await fetch('/', {
                 method: 'POST',
                 headers: { 
@@ -284,30 +259,20 @@ const contactForm = (function() {
     }
 
     function showSuccess() {
-        // Hide form container
         formContainer.style.display = 'none';
-        // Show success message
         successMessage.style.display = 'block';
         successMessage.classList.add('fade-in');
-
-        // Scroll to success message
         successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
         console.log('Success message displayed');
     }
 
     function showError() {
-        // Show error message
         errorMessage.style.display = 'block';
         errorMessage.classList.add('fade-in');
-
-        // Scroll to error message
         errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
         console.log('Error message displayed');
     }
 
-    // Expose functions globally for onclick handlers
     window.resetForm = function() {
         form.reset();
         successMessage.style.display = 'none';
@@ -333,7 +298,16 @@ document.addEventListener('DOMContentLoaded', () => {
     typewriter.start();
     quoteGenerator.start();
     navigation.init();
-    slideshow.init();
     scrollAnimation.init();
-    contactForm.init(); // Initialize Netlify form handler
+    activeNavHighlight.init();
+    contactForm.init();
 });
+
+// Smooth scroll polyfill for Safari
+if (!('scrollBehavior' in document.documentElement.style)) {
+    import('https://cdn.jsdelivr.net/npm/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js')
+        .then(() => {
+            window.__forceSmoothScrollPolyfill__ = true;
+        })
+        .catch(err => console.log('Smooth scroll polyfill not loaded:', err));
+}
